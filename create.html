@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crea nuovo disco - PHP Dischi JSON</title>
+
+        <!-- BS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="app">
+            <header>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h1>
+                                Crea nuovo disco
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <a href="index.html" class="btn btn-primary">
+                                <- Torna ai dischi
+                            </a>
+                        </div>
+                        
+                        <div class="col-12">
+                            <template v-if="creationError">
+                                <div class="alert alert-danger mb-4" role="alert">
+                                    Si è verificato un errore. Controlla i dati e riprova
+                                </div>
+                            </template>
+
+                            <form class="row" @submit.prevent="storeDisc()">
+                                <div class="col-12 col-sm-6">
+                                    <div class="">
+                                        <label for="name" class="form-label">
+                                            Name
+                                            <span class="text-danger">
+                                                *
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="name" id="name" v-model="newDisc.name" placeholder="Inserisci il nome del disco..." required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="">
+                                        <label for="artist" class="form-label">
+                                            Artist
+                                            <span class="text-danger">
+                                                *
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="artist" id="artist" v-model="newDisc.artist" placeholder="Inserisci l'artista del disco..." required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="">
+                                        <label for="genre" class="form-label">
+                                            Genre
+                                            <span class="text-danger">
+                                                *
+                                            </span>
+                                        </label>
+                                        <input type="text" class="form-control" name="genre" id="genre" v-model="newDisc.genre" placeholder="Inserisci il genere del disco..." required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="">
+                                        <label for="year" class="form-label">
+                                            Year
+                                            <span class="text-danger">
+                                                *
+                                            </span>
+                                        </label>
+                                        <input type="number" min="1900" max="2023" class="form-control" name="year" id="year" v-model="newDisc.year" placeholder="Inserisci l'anno del disco...">
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-success w-100">
+                                        Aggiungi
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js" integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
